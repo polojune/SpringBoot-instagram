@@ -1,10 +1,10 @@
-#스프링 부트 JPA,MySQL,Security 인스타그램 
+# 스프링 부트 JPA,MySQL,Security 인스타그램 
  
 ## 의존성
 
 ![blog](https://postfiles.pstatic.net/MjAyMDA4MjBfMTM5/MDAxNTk3ODgzNDIyMDYz.wZ5P4Ig9VYkJJLswXvdtkqY22qzxXBQjxrFGCIxQ33kg.X-uXGvkC2bYaAvyVxhxjPQsj61XGB1fa9iZ8UcQPRigg.PNG.getinthere/Screenshot_42.png?type=w773)
 
-##MySQL 셋팅 
+## MySQL 셋팅 
 
 1.MySQL 한글셋팅 (my.ini)
 
@@ -28,7 +28,7 @@ character-set-server=utf8
 -create database insta;
 -use insta;
 
-##application.yml 설정 
+## application.yml 설정 
 
 ```yml 
 server:

@@ -2,6 +2,7 @@ package com.cos.instagram.domain.user;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -27,8 +28,10 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id; 
+	@Column(unique = true)
 	private String username; 
-	private String password; 
+	private String password;
+	private String email;// 모델 만들때 실수로 안넣음. 
 	private String name; 
 	private String website;
 	private String bio; //자기소개
@@ -41,4 +44,6 @@ public class User {
 	private String providerId;
 	@CreationTimestamp
 	private Timestamp createDate;
+	
+	
 }

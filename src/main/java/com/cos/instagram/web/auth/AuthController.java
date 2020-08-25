@@ -38,4 +38,7 @@ public class AuthController {
        
 		return "redirect:/auth/loginForm";
 	}
+	
+	
+	
 }

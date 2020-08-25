@@ -12,6 +12,8 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.cos.instagram.web.dto.JoinReqDto;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -39,9 +39,27 @@ spring:
     user:
       name: cos
       password: 1234   
+
+
+    oauth2:
+      client:
+        registration:
+         facebook:
+            client-id: 1682735375227369
+            client-secret: 417c65f718bdd77a4b16d0e226df8b7d
+            scope:
+            - email
+            - public_profile
+
+
+
+
+
+
+
       
 cos: 
- secret:겟인데어      
+ secret: 겟인데어      
 
 file:
   path: C:/src/springwork/instagram/src/main/resources/upload/

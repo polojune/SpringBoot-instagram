@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cos.instagram.config.auth.CosAnnotation;
+import com.cos.instagram.config.auth.PrincipalDetails;
 import com.cos.instagram.config.handler.ex.MyUsernameNotFoundException;
-import com.cos.instagram.web.auth.PrincipalDetails;
 
 @Controller
 public class TestController {
@@ -80,5 +81,11 @@ public class TestController {
 		
 		System.out.println(principal.getUsername());
 		return "facebook로그인 완료2";
+	}
+	
+	@GetMapping("/test/annotationtest")
+	public String test10(@CosAnnotation String a) {
+		System.out.println("a: " + a);
+		return "user/profile";
 	}
 }

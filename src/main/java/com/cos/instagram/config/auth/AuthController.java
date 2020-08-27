@@ -1,4 +1,4 @@
-package com.cos.instagram.web.auth;
+package com.cos.instagram.config.auth;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

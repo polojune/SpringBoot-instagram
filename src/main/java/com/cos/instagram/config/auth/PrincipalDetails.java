@@ -1,4 +1,4 @@
-package com.cos.instagram.web.auth;
+package com.cos.instagram.config.auth;
 
 import java.util.ArrayList;
 import java.util.Collection;

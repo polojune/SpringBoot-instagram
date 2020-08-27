@@ -15,11 +15,11 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
+import com.cos.instagram.config.auth.PrincipalDetails;
 import com.cos.instagram.config.oauth.dto.LoginUser;
 import com.cos.instagram.domain.user.User;
 import com.cos.instagram.domain.user.UserRepository;
 import com.cos.instagram.domain.user.UserRole;
-import com.cos.instagram.web.auth.PrincipalDetails;
 
 @Service
 public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {

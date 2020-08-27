@@ -1,4 +1,4 @@
-package com.cos.instagram.web.auth;
+package com.cos.instagram.config.auth;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,6 +25,9 @@ public class PrincipalDetailsService implements UserDetailsService {
 	private final UserRepository userRepository;
 	private final HttpSession session;
 	
+	
+	// Security Session > Authentication > UserDetails
+    // 해당 함수가 정상적으로 리턴되면 @AuthenticationPricipal 어노테이션 활성화됨.
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		log.info("loadUserByUsername : username : " + username);

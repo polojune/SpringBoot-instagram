@@ -8,7 +8,9 @@ server:
       force: true
     
 spring:
-  
+ #mustache 에서 session에 접근할 수있도록
+  mustache:
+    expose-session-attributes: true
    
     
       

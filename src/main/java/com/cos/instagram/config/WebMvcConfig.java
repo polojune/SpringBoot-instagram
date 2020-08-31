@@ -4,13 +4,16 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.resource.PathResourceResolver;
 
 import com.cos.instagram.config.auth.CosAnnotation;
 import com.cos.instagram.config.auth.LoginUserAnnotation;
@@ -24,6 +27,22 @@ public class WebMvcConfig implements WebMvcConfigurer {
       
 	 private final HttpSession httpSession; 
 	 
+	 @Value("${file.path}")
+	 private String uploadFolder;
+	 
+	 @Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		
+		WebMvcConfigurer.super.addResourceHandlers(registry);
+		registry 
+		    .addResourceHandler("/upload/**")
+		    .addResourceLocations("file:///" + uploadFolder)
+		    .setCachePeriod(3600)
+		    .resourceChain(true)
+		    .addResolver(new PathResourceResolver());
+		    
+		
+	}
 	 
 	 
 	 

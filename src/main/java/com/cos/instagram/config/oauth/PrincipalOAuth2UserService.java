@@ -56,6 +56,7 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
 	}
 
 	private User oauthLoginOrJoin(OAuth2User oAuth2User) {
+		String name = oAuth2User.getAttribute("name");
 		String provider = "facebook";
 		String providerId = oAuth2User.getAttribute("id");
 		String username = provider+ "_" + providerId;
@@ -71,6 +72,7 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
 						//회원가입
 						User user = User.builder()
 								.username(username)
+								.name(name)
 								.password(password)
 								.email(email)
 								.role(UserRole.USER)

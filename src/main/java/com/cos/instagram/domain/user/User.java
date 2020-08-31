@@ -1,6 +1,7 @@
 package com.cos.instagram.domain.user;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,10 +10,14 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.cos.instagram.domain.image.Image;
 import com.cos.instagram.web.dto.JoinReqDto;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,5 +52,15 @@ public class User {
 	@CreationTimestamp
 	private Timestamp createDate;
 	
+//	@JsonIgnoreProperties("user")
+//	@OneToMany(mappedBy = "user")
+//	private List<Image> images;
 	
+	
+//	@Transient
+//	private int imageCount;
+//	@Transient
+//	private int followerCount;
+//	@Transient
+//	private int followingCount; 
 }

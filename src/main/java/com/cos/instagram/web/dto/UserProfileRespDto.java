@@ -16,8 +16,9 @@ import lombok.NoArgsConstructor;
 @Builder
 public class UserProfileRespDto {
         private boolean pageHost; //페이지의 주인 확인   
+        private boolean followState; // true(팔로우 취소) , false(팔로우)
      	private User user;
-        private List<Image> images; 
+        private List<UserProfileImageRespDto> images; 
         private int imageCount; 
         private int followerCount; 
         private int followingCount;

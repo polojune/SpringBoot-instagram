@@ -12,9 +12,16 @@
 			<div class="profile__title">
 				<h1>{{respDto.user.username}}</h1>
 				  {{^respDto.pageHost}}
+				     {{#respDto.followState}}
+                        <a href="#">
+				       <button class="profile_edit_btn">팔로우취소</button>
+				  </a>	
+                     {{/respDto.followState}}
+                      {{^respDto.followState}}       				   
 				<a href="#">
-				  <button class="profile_edit_btn">팔로우</button>
+				  <button class="profile_follow_btn">팔로우</button>
 				</a>	
+				    {{/respDto.followState}} 
 				 {{/respDto.pageHost}}
 				
 				 {{#respDto.pageHost}}
@@ -60,12 +67,12 @@
 	           <img src ="/upload/{{imageUrl}}">
 	         
 	         </a>
-	       <div class="profile__photo--overlay">
+	       <div class="profile__photo-overlay">
 	          <span class="profile__photo-stat">
-	              <i class= "fa fa-heart"></i>50
+	              <i class= "fa fa-heart"></i>{{likeCount}}
 	          </span>
 	           <span class="profile__photo-stat">
-	              <i class= "fa fa-comment"></i>22
+	              <i class= "fa fa-comment"></i>{{commentCount}}
 	          </span>
 	       
 	          
@@ -82,8 +89,10 @@
 <div class="profile__overlay">
 	<i class="fa fa-times"></i>
 	<div class="profile__overlay-container">
-		<a href="#" class="profile__overlay-link">Change password</a> <a href="#"
-			class="profile__overlay-link" id="logout">Log Out</a> <a href="#"
+		<a href="#" class="profile__overlay-link">Change password</a>
+        <a href="/auth/logout"
+			class="profile__overlay-link" id="logout">Log Out</a> 
+			<a href="#"
 			class="profile__overlay-link" id="cancel">Cancel</a>
 	</div>
 </div>

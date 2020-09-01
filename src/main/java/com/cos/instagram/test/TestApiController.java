@@ -89,7 +89,7 @@ public class TestApiController {
 		  return tagRepositoty.findAll();
 	  }
 	  
-	  @PostMapping("/test/api/follow/{fromUserId}/{toUserId}")
+	  @GetMapping("/test/api/follow/{fromUserId}/{toUserId}")
 	  public String follow(@PathVariable int fromUserId, @PathVariable int toUserId) {
 		 
 		   User fromUserEntity = userRepository.findById(fromUserId).get(); 
@@ -104,7 +104,7 @@ public class TestApiController {
 		   return fromUserEntity.getUsername()+"이" +toUserEntity.getUsername()+"을 팔로우 하였습니다.";
 	  }
 	  
-	  @PostMapping("/test/api/image/{imageId}/like")
+	  @GetMapping("/test/api/image/{imageId}/like")
 	  public String imageLike(@PathVariable int imageId) {
 		  Image imgaeEntity = imageRepository.findById(imageId).get();
 		  User userEntity = userRepository.findById(1).get();

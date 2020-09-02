@@ -40,9 +40,9 @@
 				<li class="profile__stat"><span class="profile__stat-number">{{respDto.imageCount}}</span>
 					posts</li>
 				<li class="profile__stat"><span class="profile__stat-number">{{respDto.followerCount}}</span>
-					followers</li>
+					<a href="/follow/followerList/{{respDto.user.id}}">followers</a></li>
 				<li class="profile__stat"><span class="profile__stat-number">{{respDto.followingCount}}</span>
-					following</li>
+					<a href="/follow/followingList/{{respDto.user.id}}">following</a></li>
 			</ul>
 			<p class="profile__bio">
 				<span class="profile__fullname">{{respDto.user.name}}</span> 
@@ -101,6 +101,7 @@
 	$(function() {
 		//이미지 클릭시 업로드창 실행
 		$('#profile_image').click(function() {
+			
 			$("input[name='profileImage']").click();
 		})
 		//업로드 파일체인지가 됬을경우 실행되는 이벤트  form태그에 fileProfile은 hidden으로 넣어줌

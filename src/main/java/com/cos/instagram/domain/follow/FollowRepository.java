@@ -28,4 +28,6 @@ public interface FollowRepository extends JpaRepository<Follow, Integer> {
 	 @Modifying
 	 @Query(value = "DELETE FROM follow WHERE fromUserId = ?1 AND toUserId = ?2", nativeQuery = true)
 	 int mUnFollow(int loginUserId, int pageUserId);  	
+	 
+	 
 }

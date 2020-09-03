@@ -1,5 +1,7 @@
 package com.cos.instagram.web;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.cos.instagram.config.auth.LoginUserAnnotation;
 import com.cos.instagram.config.oauth.dto.LoginUser;
+import com.cos.instagram.domain.image.Image;
 import com.cos.instagram.service.ImageService;
 import com.cos.instagram.web.dto.ImageReqDto;
 
@@ -23,6 +26,13 @@ public class ImageController {
  		System.out.println("loginUser : " + loginUser);
 		return "image/feed";
 	}
+	
+	@GetMapping("/test/image/feed")
+	public List<Image> testFeed(@LoginUserAnnotation LoginUser loginUser) {
+ 		List<Image> images = imageService.피드사진(loginUser.getId());
+		return null;
+	}
+	
 	
 	 @GetMapping("/image/UploadForm")
 	 public String imageUploadForm() {

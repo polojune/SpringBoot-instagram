@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cos.instagram.config.auth.LoginUserAnnotation;
 import com.cos.instagram.config.oauth.dto.LoginUser;
@@ -22,15 +23,17 @@ public class ImageController {
 	private final ImageService imageService;
 	
 	@GetMapping({ "", "/", "/image/feed" })
-	public String feed(@LoginUserAnnotation LoginUser loginUser) {
- 		System.out.println("loginUser : " + loginUser);
+	public String feed(@LoginUserAnnotation LoginUser loginUser, Model model) {
+ 		model.addAttribute("images", imageService.피드사진(loginUser.getId()));
+		System.out.println("loginUser : " + loginUser);
 		return "image/feed";
 	}
 	
 	@GetMapping("/test/image/feed")
-	public List<Image> testFeed(@LoginUserAnnotation LoginUser loginUser) {
+	public @ResponseBody List<Image> testFeed(@LoginUserAnnotation LoginUser loginUser) {
  		List<Image> images = imageService.피드사진(loginUser.getId());
-		return null;
+		
+ 		return images;
 	}
 	
 	

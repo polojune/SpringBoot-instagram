@@ -18,6 +18,8 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.cos.instagram.domain.comment.Comment;
+import com.cos.instagram.domain.like.Likes;
 import com.cos.instagram.domain.tag.Tag;
 import com.cos.instagram.domain.user.User;
 import com.cos.instagram.web.dto.UserProfileImageRespDto;
@@ -64,8 +66,25 @@ public class Image {
 	@JsonIgnoreProperties({"image"})//Jackson한테 내리는 명령
 	private List<Tag> tags;
 	
+	@JsonIgnoreProperties({"image"})
+	@OneToMany(mappedBy = "image")
+	private List<Comment> comments;
+	
+	@JsonIgnoreProperties({"image"})
+	@OneToMany(mappedBy = "image")
+	private List<Likes> likes;
+	
+	
+	
 	@CreationTimestamp
 	private Timestamp createDate;
+	
+	@Transient
+	private boolean likeState;
+	
+	@Transient
+	private int likeCount;
+	
 
 	
 }

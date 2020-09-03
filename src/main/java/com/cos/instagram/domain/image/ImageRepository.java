@@ -15,6 +15,6 @@ public interface ImageRepository extends JpaRepository<Image, Integer> {
 	@Query(value = "SELECT * FROM image i WHERE i.userId not in (SELECT f.toUserId FROM follow f WHERE f.fromUserId = ?1) AND i.userId != ?1 limit 20", nativeQuery = true)
 	List<Image> mNonFollowImage(int loginUserId);
 	
-	@Query(value = "select * from image where userid in (select toUserId from follow where fromUserId= ?1", nativeQuery = true )
+	@Query(value = "select * from image where userId in (select toUserId from follow where fromUserId= ?1)", nativeQuery = true )
 	List<Image> mFeeds(int loginUserId);
 }

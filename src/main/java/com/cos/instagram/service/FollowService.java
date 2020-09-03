@@ -35,6 +35,7 @@ public class FollowService {
     	 sb.append("and f.fromUserId = ?"); 
     	 String q = sb.toString();
     	 
+    	 System.out.println("팔로잉 리스트: "+q);
     	 Query query = em.createNativeQuery(q, "FollowRespDtoMapping")
     			         .setParameter(1, loginUserId)
     			         .setParameter(2, loginUserId)
@@ -62,6 +63,7 @@ public class FollowService {
      
    } 
      
+    
      //서비스에서 롤백하려면 throw를 runtimeException을 던저야함. 
      @Transactional
      public void 팔로우(int loginUserId, int pageUserId) {

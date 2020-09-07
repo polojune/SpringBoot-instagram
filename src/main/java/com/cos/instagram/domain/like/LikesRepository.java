@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface LikesRepository extends JpaRepository<Likes, Integer>{
     
 	@Modifying
-    @Query(value = "INSER INTO likes(imageId,userId) VALUES(?1,?2)", nativeQuery = true)
+    @Query(value = "INSERT INTO likes(imageId,userId) VALUES(?1,?2)", nativeQuery = true)
 	int mSave(int imageId, int loginUserId); 
 	
 	@Modifying

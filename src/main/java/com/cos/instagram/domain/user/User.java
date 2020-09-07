@@ -67,7 +67,7 @@ public class User {
 	private String name; 
 	private String website;
 	private String bio; //자기소개
-	private String phones; 
+	private String phone; 
 	private String gender;
 	private String profileImage;
 	@Enumerated(EnumType.STRING)

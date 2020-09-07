@@ -4,9 +4,10 @@
 		<div class="avatar__container">
 			<form id="frm_profile_img" action="/user/profileUpload" method="post">
 				<input type="file" name="profileImage" style="display: none;" />
+				<input type="hidden" name="userId" value="{{respDto.user.id}}"/>
 			</form>
-			<img src="/images/avatar.jpg" id="profile_image"
-				style="cursor: pointer" />
+			<img src="/upload/{{#respDto.user.profileImage}}{{respDto.user.profileImage}}{{/respDto.user.profileImage}}" id="profile_image"
+				style="cursor: pointer" onerror="this.src='/images/avater.jpg'" />
 		</div>
 		<div class="profile__info">
 			<div class="profile__title">
@@ -89,11 +90,11 @@
 <div class="profile__overlay">
 	<i class="fa fa-times"></i>
 	<div class="profile__overlay-container">
-		<a href="#" class="profile__overlay-link">Change password</a>
-        <a href="/auth/logout"
-			class="profile__overlay-link" id="logout">Log Out</a> 
-			<a href="#"
-			class="profile__overlay-link" id="cancel">Cancel</a>
+		
+           <a href="/auth/logout"
+			  class="profile__overlay-link" id="logout">Log Out</a> 
+		   <a href="#"
+			  class="profile__overlay-link" id="cancel">Cancel</a>
 	</div>
 </div>
 

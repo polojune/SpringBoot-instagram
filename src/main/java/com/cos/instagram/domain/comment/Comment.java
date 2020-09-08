@@ -1,5 +1,6 @@
 package com.cos.instagram.domain.comment;
 
+
 import java.sql.Timestamp;
 
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -42,5 +44,7 @@ public class Comment {
 	@CreationTimestamp
 	private Timestamp createDate;
 	
+	@Transient
+	private boolean commentHost;
 	
 }

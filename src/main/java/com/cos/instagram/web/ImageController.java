@@ -46,7 +46,7 @@ public class ImageController {
 	 public String imageUpload(@LoginUserAnnotation LoginUser loginUser, ImageReqDto imageReqDto) {
 		 System.out.println(imageReqDto);
 		 imageService.사진업로드(imageReqDto, loginUser.getId());
-		 return "redirect:/";
+		 return "redirect:/user/"+loginUser.getId();
 	 }
 	 
 	 @GetMapping("/image/explore")

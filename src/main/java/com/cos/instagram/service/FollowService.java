@@ -12,6 +12,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.cos.instagram.domain.follow.FollowRepository;
+import com.cos.instagram.domain.notice.NoticeRepository;
+import com.cos.instagram.domain.notice.NoticeType;
 import com.cos.instagram.web.dto.FollowRespDto;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +26,9 @@ public class FollowService {
 	private EntityManager em;
 	
 	private final FollowRepository followRepository; 
-     
+    private final NoticeRepository noticeRepository;
+	
+	
      public List<FollowRespDto> 팔로잉리스트(int loginUserId, int pageUserId){
     	// 첫번째 물음표 loginUserId, 두번째 물음표 pageUserId
     	 StringBuilder sb = new StringBuilder();
@@ -68,7 +72,8 @@ public class FollowService {
      @Transactional
      public void 팔로우(int loginUserId, int pageUserId) {
     	 int result = followRepository.mFollow(loginUserId, pageUserId);
-    	 System.out.println("팔로우 result:" + result);
+         noticeRepository.mSave(loginUserId, pageUserId, NoticeType.FOLLOW.name());  
+         System.out.println("팔로우 result:" + result);
      }
      
      @Transactional 

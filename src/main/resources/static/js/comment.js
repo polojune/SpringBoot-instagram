@@ -21,7 +21,7 @@
     		return res.text();
     		
     	}).then(function(res){
-    		alert("댓글작성 성공");
+    		//alert("댓글작성 성공");
     		location.reload();
     	});
     }
@@ -31,7 +31,7 @@
 	 }).then(function(res){
 		 return res.text();
 	 }).then(function(res){
-		 alert("댓글 삭제 성공"); 
+		 //alert("댓글 삭제 성공"); 
 		 location.reload();
 	 });
  }

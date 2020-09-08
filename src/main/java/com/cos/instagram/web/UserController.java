@@ -44,7 +44,7 @@ public class UserController {
 	 
 	 @PutMapping("/user")
 	 public ResponseEntity<?> userUpdate(User user){
-		  userService.회원수정(user); 
+		    userService.회원수정(user); 
 		  return new ResponseEntity<String>("ok", HttpStatus.OK);
 	 }
 

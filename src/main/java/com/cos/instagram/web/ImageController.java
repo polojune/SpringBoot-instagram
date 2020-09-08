@@ -23,15 +23,15 @@ public class ImageController {
 	private final ImageService imageService;
 	
 	@GetMapping({ "", "/", "/image/feed" })
-	public String feed(@LoginUserAnnotation LoginUser loginUser, Model model) {
- 		model.addAttribute("images", imageService.피드사진(loginUser.getId()));
+	public String feed(String tag,@LoginUserAnnotation LoginUser loginUser, Model model) {
+ 		model.addAttribute("images", imageService.피드사진(loginUser.getId(),tag));
 		System.out.println("loginUser : " + loginUser);
 		return "image/feed";
 	}
 	
 	@GetMapping("/test/image/feed")
-	public @ResponseBody List<Image> testFeed(@LoginUserAnnotation LoginUser loginUser) {
- 		List<Image> images = imageService.피드사진(loginUser.getId());
+	public @ResponseBody List<Image> testFeed(String tag,@LoginUserAnnotation LoginUser loginUser) {
+ 		List<Image> images = imageService.피드사진(loginUser.getId(),tag);
 		
  		return images;
 	}

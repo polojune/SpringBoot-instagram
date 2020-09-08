@@ -2,12 +2,12 @@
 <main id="profile">
 	<header class="profile__header">
 		<div class="avatar__container">
-			<form id="frm_profile_img" action="/user/profileUpload" method="post">
+			<form id="frm_profile_img" action="/user/profileUpload" method="post" enctype="multipart/form-data">
 				<input type="file" name="profileImage" style="display: none;" />
 				<input type="hidden" name="userId" value="{{respDto.user.id}}"/>
 			</form>
 			<img src="/upload/{{#respDto.user.profileImage}}{{respDto.user.profileImage}}{{/respDto.user.profileImage}}" id="profile_image"
-				style="cursor: pointer" onerror="this.src='/images/avater.jpg'" />
+				style="cursor: pointer" onerror="this.src='/images/avatar.jpg'" />
 		</div>
 		<div class="profile__info">
 			<div class="profile__title">
@@ -26,9 +26,7 @@
 				 {{/respDto.pageHost}}
 				
 				 {{#respDto.pageHost}}
-				<a href="/user/profileEdit">
-					<button class="profile_edit_btn">회원수정</button>
-					</a>
+				
 				 <a href="/image/UploadForm">
 					<button class="profile_edit_btn">사진등록</button>
 				 </a>
@@ -91,10 +89,12 @@
 	<i class="fa fa-times"></i>
 	<div class="profile__overlay-container">
 		
-           <a href="/auth/logout"
-			  class="profile__overlay-link" id="logout">Log Out</a> 
+           <a href="/user/profileEdit"
+			  class="profile__overlay-link" id="logout">회원수정</a> 
+			<a href="/auth/logout"
+			  class="profile__overlay-link" id="logout">로그아웃</a>   
 		   <a href="#"
-			  class="profile__overlay-link" id="cancel">Cancel</a>
+			  class="profile__overlay-link" id="cancel">취소</a>
 	</div>
 </div>
 
